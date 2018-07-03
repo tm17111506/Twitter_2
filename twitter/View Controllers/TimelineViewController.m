@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "Tweet.h"
 #import "TweetCell.h"
+#import "APIManager.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,15 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     self.tableView.dataSource = self;
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (Tweet *tweet in tweets) {
-                NSString *text = tweet.text;
-                NSLog(@"%@", text);
-            }
+//            for (Tweet *tweet in tweets) {
+//                NSString *text = tweet.text;
+//                NSLog(@"%@", text);
+//            }
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             [self.tableView reloadData];
         } else {
@@ -40,12 +42,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    Tweet *tweet = self.tweets[indexPath.row];
-    cell.tweetTextLabel.text = tweet.text;
-    cell.userNameLabel.text = tweet.user.name;
-    cell.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    cell.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-    cell.createdDateLabel.text = tweet.createdAtString;
+    cell.tweet = self.tweets[indexPath.row];
+    [cell setTweetCell:cell.tweet];
     return cell;
 }
 
@@ -56,6 +54,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl{
 }
 
 /*

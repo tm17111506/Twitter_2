@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *favoriteView;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
 
+- (void)setTweetCell:(Tweet *)tweet;
 @property (strong, nonatomic) Tweet *tweet;
 @end
