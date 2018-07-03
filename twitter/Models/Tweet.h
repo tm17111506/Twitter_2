@@ -19,7 +19,6 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *createdAtString; //Date
 @property (strong, nonatomic) User *retweetedByUser; //Username who retweeted the post
-@property (nonatomic, strong) NSString *profileImageURL;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;

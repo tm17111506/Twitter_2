@@ -31,8 +31,7 @@
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     self.createdDateLabel.text = tweet.createdAtString;
     
-    NSURL *url = [NSURL URLWithString:tweet.profileImageURL];
-    [self.userProfileView setImageWithURL:url];
+    [self.userProfileView setImageWithURL:tweet.user.userProfileURL];
 }
 
 @end

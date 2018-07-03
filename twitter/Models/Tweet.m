@@ -20,14 +20,13 @@
             NSDictionary *orgUserDictionary = dictionary[@"user"];
             self.retweetedByUser = [[User alloc]initWithDictionary:orgUserDictionary];
         }
-        NSLog(@"%@", dictionary);
+
         self.idString = dictionary[@"id_str"];
         self.text = dictionary[@"text"];
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
         self.retweeted = [dictionary[@"retweeted"] boolValue];
-        self.profileImageURL = dictionary[@"profile_image_url_https"];
 
         NSDictionary *user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
