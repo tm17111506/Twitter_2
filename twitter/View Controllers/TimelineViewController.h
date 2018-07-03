@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimelineViewController : UIViewController
-
+@interface TimelineViewController : UIViewController <UITableViewDataSource>
+@property (nonatomic, strong) NSMutableArray *tweets;
 @end

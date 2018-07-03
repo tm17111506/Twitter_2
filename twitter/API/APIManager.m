@@ -7,6 +7,7 @@
 //
 
 #import "APIManager.h"
+#import "Tweet.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
 static NSString * const consumerKey = @"j3zPggX3eTzaFbJfIg1AFx1Jr";
@@ -49,26 +50,29 @@ static NSString * const consumerSecret = @"mFg6eXkuyjIivpE2KST5G4KCGYWNGx4XfXYzi
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
     
-    [self GET:@"1.1/statuses/home_timeline.json"
+  [self GET:@"1.1/statuses/home_timeline.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        
        // Manually cache the tweets. If the request fails, restore from cache if possible.
-       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
-       [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
-
-       completion(tweetDictionaries, nil);
+//       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
+//       [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
+//
+//       completion(tweetDictionaries, nil);
+       
+       NSMutableArray *tweets = [Tweet tweetsWithArray: tweetDictionaries];
+       completion(tweets, nil);
        
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        
-       NSArray *tweetDictionaries = nil;
+//       NSArray *tweetDictionaries = nil;
+//
+//       // Fetch tweets from cache if possible
+//       NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"hometimeline_tweets"];
+//       if (data != nil) {
+//           tweetDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//       }
        
-       // Fetch tweets from cache if possible
-       NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"hometimeline_tweets"];
-       if (data != nil) {
-           tweetDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-       }
-       
-       completion(tweetDictionaries, error);
+       completion(nil, error);
    }];
 }
 
