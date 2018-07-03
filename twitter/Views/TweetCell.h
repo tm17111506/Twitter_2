@@ -14,10 +14,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createdDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *retweetView;
+//@property (weak, nonatomic) IBOutlet UIImageView *retweetView;
 @property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *favoriteView;
+//@property (weak, nonatomic) IBOutlet UIImageView *favoriteView;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 
 - (void)setTweetCell:(Tweet *)tweet;
 @property (strong, nonatomic) Tweet *tweet;
