@@ -86,13 +86,13 @@
                                                         <constraint firstAttribute="width" constant="80" id="uB4-z5-lTe"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-pg-HKi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HK-pg-HKi">
                                                     <rect key="frame" x="103" y="15" width="86" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created_Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMP-53-u9Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Created_Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMP-53-u9Q">
                                                     <rect key="frame" x="283" y="19" width="77" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -140,6 +140,12 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJW-go-Wni">
+                                                    <rect key="frame" x="197" y="18" width="35" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xDo-Ij-Mhq" firstAttribute="leading" secondItem="vE5-Ul-Zb0" secondAttribute="trailing" constant="8" id="0XG-gk-eeX"/>
@@ -151,6 +157,7 @@
                                                 <constraint firstItem="1HK-pg-HKi" firstAttribute="top" secondItem="NBl-Hw-jNU" secondAttribute="top" constant="15" id="HKA-T1-9tH"/>
                                                 <constraint firstItem="IWb-tQ-pFT" firstAttribute="leading" secondItem="bRu-u2-QIe" secondAttribute="trailing" id="I2a-T5-NXC"/>
                                                 <constraint firstItem="VMP-53-u9Q" firstAttribute="baseline" secondItem="1HK-pg-HKi" secondAttribute="baseline" id="JUT-MP-jXa"/>
+                                                <constraint firstItem="SJW-go-Wni" firstAttribute="leading" secondItem="1HK-pg-HKi" secondAttribute="trailing" constant="8" id="NRJ-Rb-zhN"/>
                                                 <constraint firstItem="xwS-a5-zx2" firstAttribute="top" secondItem="xDo-Ij-Mhq" secondAttribute="bottom" constant="5" id="Q6C-5z-wEY"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bRu-u2-QIe" secondAttribute="bottom" constant="5" id="Suf-iQ-bii"/>
                                                 <constraint firstItem="bRu-u2-QIe" firstAttribute="top" secondItem="xDo-Ij-Mhq" secondAttribute="bottom" constant="5" id="UFA-xT-1P1"/>
@@ -166,12 +173,14 @@
                                                 <constraint firstItem="vE5-Ul-Zb0" firstAttribute="leading" secondItem="NBl-Hw-jNU" secondAttribute="leading" constant="15" id="qrN-pv-B1U"/>
                                                 <constraint firstItem="xDo-Ij-Mhq" firstAttribute="top" secondItem="NBl-Hw-jNU" secondAttribute="top" constant="40" id="sVi-7N-9GL"/>
                                                 <constraint firstItem="1HK-pg-HKi" firstAttribute="top" secondItem="NBl-Hw-jNU" secondAttribute="top" constant="15" id="ump-66-gi2"/>
+                                                <constraint firstItem="SJW-go-Wni" firstAttribute="baseline" secondItem="1HK-pg-HKi" secondAttribute="baseline" id="xus-kx-atf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="createdDateLabel" destination="VMP-53-u9Q" id="WbC-T9-W5u"/>
                                             <outlet property="favoriteButton" destination="bRu-u2-QIe" id="zSa-nP-2LY"/>
                                             <outlet property="favoriteCountLabel" destination="IWb-tQ-pFT" id="F91-Gg-gbR"/>
+                                            <outlet property="idLabel" destination="SJW-go-Wni" id="tUO-YY-XTN"/>
                                             <outlet property="retweetButton" destination="xwS-a5-zx2" id="m80-wK-Hep"/>
                                             <outlet property="retweetCountLabel" destination="oXY-gk-jdl" id="cE1-Vh-aKV"/>
                                             <outlet property="tweetTextLabel" destination="xDo-Ij-Mhq" id="EGD-e3-vbA"/>

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
 
 - (void)setTweetCell:(Tweet *)tweet;
 @property (strong, nonatomic) Tweet *tweet;

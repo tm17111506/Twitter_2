@@ -94,7 +94,7 @@
     _tweet = tweet;
     self.tweetTextLabel.text = tweet.text;
     [self.tweetTextLabel sizeToFit];
-    
+    self.idLabel.text = [NSString stringWithFormat:@"@%@",self.tweet.user.screenName];
     self.userNameLabel.text = tweet.user.name;
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     [self.favoriteCountLabel sizeToFit];
