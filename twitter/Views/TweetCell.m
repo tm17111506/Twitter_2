@@ -93,9 +93,14 @@
 - (void)setTweetCell:(Tweet*)tweet{
     _tweet = tweet;
     self.tweetTextLabel.text = tweet.text;
+    [self.tweetTextLabel sizeToFit];
+    
     self.userNameLabel.text = tweet.user.name;
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    [self.favoriteCountLabel sizeToFit];
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+    [self.retweetCountLabel sizeToFit];
+    
     self.createdDateLabel.text = tweet.createdAtString;
     
     [self.userProfileView setImageWithURL:tweet.user.userProfileURL];
