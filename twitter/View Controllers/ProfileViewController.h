@@ -10,7 +10,7 @@
 #import "Tweet.h"
 
 @interface ProfileViewController : UIViewController
-@property (nonatomic, strong) Tweet *tweet;
+@property (nonatomic, strong) User *user;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *idLabel;

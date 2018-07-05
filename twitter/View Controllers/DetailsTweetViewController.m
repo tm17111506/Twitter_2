@@ -62,7 +62,7 @@
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqual:@"TweetProfileView"]){
         ProfileViewController *profileViewController = [segue destinationViewController];
-        profileViewController.tweet = self.tweet;
+        profileViewController.user = self.tweet.user;
     }
 }
 

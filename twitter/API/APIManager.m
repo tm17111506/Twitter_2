@@ -8,6 +8,7 @@
 
 #import "APIManager.h"
 #import "Tweet.h"
+#import "User.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
 static NSString * const consumerKey = @"j3zPggX3eTzaFbJfIg1AFx1Jr";
@@ -120,6 +121,16 @@ static NSString * const consumerSecret = @"mFg6eXkuyjIivpE2KST5G4KCGYWNGx4XfXYzi
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         completion(nil, error);
     }];
+}
+
+- (void)personalUserCompletion:(void (^)(User *, NSError *))completion{
+    [self GET:@"1.1/account/verify_credentials.json"
+   parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable userDictionary) {
+       User *user = [[User alloc]initWithDictionary:userDictionary];
+       completion(user, nil);
+   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       completion(nil, error);
+   }];
 }
 
 @end

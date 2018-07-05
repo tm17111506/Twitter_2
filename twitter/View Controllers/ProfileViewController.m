@@ -27,22 +27,22 @@
 }
 
 - (void)setProfile{
-    self.idLabel.text = [NSString stringWithFormat:@"@%@",self.tweet.user.screenName];
+    self.idLabel.text = [NSString stringWithFormat:@"@%@",self.user.screenName];
     [self.idLabel sizeToFit];
-    self.userNameLabel.text = self.tweet.user.name;
+    self.userNameLabel.text = self.user.name;
     [self.userNameLabel sizeToFit];
     
-    self.locationLabel.text = self.tweet.user.location;
+    self.locationLabel.text = self.user.location;
     [self.userNameLabel sizeToFit];
-    self.summaryLabel.text = self.tweet.user.summary;
+    self.summaryLabel.text = self.user.summary;
     [self.summaryLabel sizeToFit];
-    self.followersCount.text = self.tweet.user.followersCount;
+    self.followersCount.text = self.user.followersCount;
     [self.followersCount sizeToFit];
-    self.followingCount.text = self.tweet.user.followingCount;
+    self.followingCount.text = self.user.followingCount;
     [self.followingCount sizeToFit];
     
-    [self.userProfileView setImageWithURL:self.tweet.user.userProfileURL];
-    [self.backgroundImageView setImageWithURL:self.tweet.user.profileBackgroundURL];
+    [self.userProfileView setImageWithURL:self.user.userProfileURL];
+    [self.backgroundImageView setImageWithURL:self.user.profileBackgroundURL];
 }
 
 /*

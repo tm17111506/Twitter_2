@@ -23,7 +23,9 @@
         }
         self.followersCount = [NSString stringWithFormat:@"%@",dictionary[@"followers_count"]];
         self.followingCount = [NSString stringWithFormat:@"%@", dictionary[@"friends_count"]];
-        self.profileBackgroundURL = [NSURL URLWithString:dictionary[@"profile_background_image_url_https"]];
+        if(!(dictionary[@"profile_background_image_url_https"] == [NSNull null])){
+            self.profileBackgroundURL = [NSURL URLWithString:dictionary[@"profile_background_image_url_https"]];
+        }
     }
     return self;
 }
