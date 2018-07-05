@@ -12,6 +12,7 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "DetailsTweetViewController.h"
 
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -80,9 +81,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if([segue.identifier  isEqual:@"DetailsTweet"]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *tappedIndex = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.tweets[tappedIndex.row];
+        
+        DetailsTweetViewController *detailsTweetViewController = [segue destinationViewController];
+        detailsTweetViewController.tweet = tweet;
+    }
+    else if([segue.identifier isEqual:@"ComposeTweet"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+    else if([segue.identifier isEqual:@"PersonalProfileView"]){
+    }
+    else if([segue.identifier isEqual:@"TweetProfileView"]){
+    }
 }
 
 @end

@@ -101,7 +101,7 @@
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     [self.retweetCountLabel sizeToFit];
     
-    self.createdDateLabel.text = tweet.createdAtString;
+    self.createdDateLabel.text = tweet.timeAgo;
     
     [self.userProfileView setImageWithURL:tweet.user.userProfileURL];
 }

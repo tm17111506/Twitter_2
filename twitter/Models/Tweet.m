@@ -38,10 +38,11 @@
         formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
         NSDate *date = [formatter dateFromString:createdAtOriginalString];
         NSString *dateTimeAgo = date.shortTimeAgoSinceNow;
-//        formatter.dateStyle = NSDateFormatterShortStyle;
-//        formatter.timeStyle = NSDateFormatterNoStyle;
-//        self.createdAtString = [formatter stringFromDate:date];
-        self.createdAtString = dateTimeAgo;
+        self.timeAgo = dateTimeAgo;
+        formatter.dateStyle = NSDateFormatterLongStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+        self.createdAtString = [formatter stringFromDate:date];
+//        self.createdAtString = dateTimeAgo;
     }
     return self;
 }

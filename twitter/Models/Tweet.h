@@ -18,6 +18,7 @@
 @property (nonatomic) BOOL retweeted;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *createdAtString; //Date
+@property (nonatomic, strong) NSString *timeAgo;
 @property (strong, nonatomic) User *retweetedByUser; //Username who retweeted the post
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
