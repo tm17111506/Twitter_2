@@ -17,6 +17,7 @@
 @interface TimelineViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property BOOL isMoreDataLoading;
 @end
 
 @implementation TimelineViewController
@@ -35,6 +36,7 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
+            self.isMoreDataLoading = NO;
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             [self.tableView reloadData];
         } else {
@@ -42,6 +44,20 @@
         }
     }];
     [self.refreshControl endRefreshing];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = YES;
+            [self fetchTimeline];
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -95,8 +111,6 @@
         composeController.delegate = self;
     }
     else if([segue.identifier isEqual:@"PersonalProfileView"]){
-    }
-    else if([segue.identifier isEqual:@"TweetProfileView"]){
     }
 }
 

@@ -10,7 +10,7 @@
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
-
+#import "ProfileViewController.h"
 
 @interface DetailsTweetViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileView;
@@ -53,14 +53,18 @@
     [self.userProfileView setImageWithURL:self.tweet.user.userProfileURL];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqual:@"TweetProfileView"]){
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.tweet = self.tweet;
+    }
 }
-*/
+
 
 @end

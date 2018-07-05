@@ -16,6 +16,14 @@
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
         self.userProfileURL = [NSURL URLWithString:dictionary[@"profile_image_url_https"]];
+        self.location = dictionary[@"location"];
+        self.summary = @"";
+        if(dictionary[@"description"] != nil){
+            self.summary = dictionary[@"description"];
+        }
+        self.followersCount = [NSString stringWithFormat:@"%@",dictionary[@"followers_count"]];
+        self.followingCount = [NSString stringWithFormat:@"%@", dictionary[@"friends_count"]];
+        self.profileBackgroundURL = [NSURL URLWithString:dictionary[@"profile_background_image_url_https"]];
     }
     return self;
 }

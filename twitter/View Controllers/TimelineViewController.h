@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ComposeViewController.h"
 
-@interface TimelineViewController : UIViewController <UITableViewDataSource, ComposeViewControllerDelegate>
+@interface TimelineViewController : UIViewController <UITableViewDataSource, ComposeViewControllerDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *tweets;
 @end
