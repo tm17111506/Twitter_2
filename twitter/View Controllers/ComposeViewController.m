@@ -9,6 +9,7 @@
 #import "ComposeViewController.h"
 #import "APIManager.h"
 #import "Tweet.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ComposeViewController ()
 
@@ -19,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.composeTextView.layer.borderColor = UIColor.blueColor.CGColor;
+    self.composeTextView.layer.borderWidth = 2;
+    self.composeTextView.layer.cornerRadius = 3;
 }
 
 - (void)didReceiveMemoryWarning {

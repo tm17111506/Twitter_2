@@ -103,6 +103,12 @@
     
     self.createdDateLabel.text = tweet.timeAgo;
     
+    if(self.tweet.retweeted) self.retweetButton.selected = YES;
+    else self.retweetButton.selected = NO;
+    
+    if(self.tweet.favorited) self.favoriteButton.selected = YES;
+    else self.favoriteButton.selected = NO;
+    
     [self.userProfileView setImageWithURL:tweet.user.userProfileURL];
 }
 

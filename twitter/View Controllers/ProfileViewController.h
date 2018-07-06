@@ -20,5 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *followersCount;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
+@property (weak, nonatomic) IBOutlet UIView *tweetSubview;
+@property (weak, nonatomic) IBOutlet UIView *mediaSubview;
+@property (weak, nonatomic) IBOutlet UIView *likesSubview;
 
 @end

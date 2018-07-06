@@ -28,7 +28,8 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     [self fetchTimeline];
-    
+    [self fetchPersonalData];
+
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -109,7 +110,6 @@
         composeController.delegate = self;
     }
     else if([segue.identifier isEqual:@"PersonalProfileView"]){
-        [self fetchPersonalData];
         ProfileViewController *profileViewController = [segue destinationViewController];
         profileViewController.user = self.userData;
     }
