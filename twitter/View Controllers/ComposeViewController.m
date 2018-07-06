@@ -11,7 +11,8 @@
 #import "Tweet.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *textCountLabel;
 
 @end
 
@@ -20,9 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.composeTextView.layer.borderColor = UIColor.blueColor.CGColor;
+    self.composeTextView.layer.borderColor = UIColor.grayColor.CGColor;
     self.composeTextView.layer.borderWidth = 2;
-    self.composeTextView.layer.cornerRadius = 3;
+    self.composeTextView.layer.cornerRadius = 10;
+    self.composeTextView.delegate = self;
+    self.textCountLabel.text = @"0/140";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +63,16 @@
 - (IBAction)onTweetPost:(id)sender {
     [self postTweet];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    int characterLimit = 140;
+    
+    NSString *newText = [self.composeTextView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    // TODO: Update Character Count Label
+    self.textCountLabel.text = [NSString stringWithFormat:@"%lu/140", newText.length];
+    return newText.length < characterLimit;
 }
 
 @end
