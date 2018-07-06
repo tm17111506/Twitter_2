@@ -8,16 +8,22 @@
 
 #import "ProfileViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "APIManager.h"
+#import "Tweet.h"
+#import "TweetCell.h"
 
-@interface ProfileViewController ()
-
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *userTweetTableView;
+@property (strong, nonatomic) NSArray *tweets;
 @end
 
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.userTweetTableView.dataSource = self;
     // Do any additional setup after loading the view.
+    [self fetchTimeline];
     [self setProfile];
 }
 
@@ -43,6 +49,29 @@
     
     [self.userProfileView setImageWithURL:self.user.userProfileURL];
     [self.backgroundImageView setImageWithURL:self.user.profileBackgroundURL];
+}
+
+- (void) fetchTimeline{
+    [[APIManager shared] userTimeline:self.user.screenName Completion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            self.tweets = [NSMutableArray arrayWithArray:tweets];
+            [self.userTweetTableView reloadData];
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+        }
+    }];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserTweetCell"];
+    cell.tweet = self.tweets[indexPath.row];
+    [cell setTweetCell:cell.tweet];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.tweets.count;
 }
 
 /*

@@ -123,6 +123,18 @@ static NSString * const consumerSecret = @"mFg6eXkuyjIivpE2KST5G4KCGYWNGx4XfXYzi
     }];
 }
 
+- (void)userTimeline:(NSString *)userID Completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    NSString *url = [NSString stringWithFormat:@"1.1/statuses/user_timeline.json?screen_name=%@&count=20", userID];
+    [self GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+       
+       NSMutableArray *tweets = [Tweet tweetsWithArray: tweetDictionaries];
+       completion(tweets, nil);
+       
+   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       completion(nil, error);
+   }];
+}
+
 - (void)personalUserCompletion:(void (^)(User *, NSError *))completion{
     [self GET:@"1.1/account/verify_credentials.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable userDictionary) {
