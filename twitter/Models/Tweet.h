@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString *createdAtString; //Date
 @property (nonatomic, strong) NSString *timeAgo;
 @property (strong, nonatomic) User *retweetedByUser; //Username who retweeted the post
-
+@property (strong, nonatomic) NSURL *mediaURL;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
 @end

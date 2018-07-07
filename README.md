@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **30** hours spent in total
 
 ## User Stories
 
@@ -35,20 +35,18 @@ The following **optional** features are implemented:
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 - [x] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140) (**1 point**)
 - [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
-- [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
-- [ ] User sees embedded images in tweet if available 
+- [x] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
+- [] User sees embedded images in tweet if available 
 - [ ] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
+Others:
+- [x] Improved the user interface of the Twitter viewer along with the layouts.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Style and organization of the code: in this assignment, as files and classes begin to build up, I realize it is important to keep the classes and their methods in classes with distinct functionality. In addition, keeping a view cell generic would also save up a lot of time and code, especially with a project like Tweet, where TweetCells are used everywhere.
+2. I hoped to implement three different cells at the user profile page, where one cell presents the Tweets, the other presents it's media, the last one could show mentions. I would switch between three different array of data and link them to corresponding cells and update the tableview then.
 
 ## Video Walkthrough
 
@@ -62,6 +60,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+I really struggled to implement media into a regular tweet because not every tweet has a valid link to an image/video. In this case, I tried to shrink a WebKitview when there wasn't any media present. However, it was hard to manipulate the WebKitView between the storyboard and the corresponding code aspects. 
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
@@ -70,7 +70,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2018] [Tiffany]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

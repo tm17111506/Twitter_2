@@ -29,7 +29,8 @@
     self.tableView.dataSource = self;
     [self fetchTimeline];
     [self fetchPersonalData];
-
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -68,6 +69,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tweets.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {

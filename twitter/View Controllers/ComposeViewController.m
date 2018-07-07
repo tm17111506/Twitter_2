@@ -44,7 +44,6 @@
 */
 
 - (void) postTweet{
-    NSLog(@"%@", @"HERE");
     [[APIManager shared]postStatusWithText:self.composeTextView.text completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);

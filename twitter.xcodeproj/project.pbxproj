@@ -17,6 +17,7 @@
 		6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD278F520BCB68B0085BC29 /* APIManager.m */; };
 		6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790520BCC0380085BC29 /* LoginViewController.m */; };
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
+		92033ED420F0200C00F92171 /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92033ED320F0200C00F92171 /* ReplyViewController.m */; };
 		9218C8D920EE8B68009159E9 /* DetailsTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218C8D820EE8B68009159E9 /* DetailsTweetViewController.m */; };
 		9218C8DC20EE9E35009159E9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218C8DB20EE9E35009159E9 /* ProfileViewController.m */; };
 		9279832720EBF63F009F67FE /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279832620EBF63F009F67FE /* ComposeViewController.m */; };
@@ -45,6 +46,8 @@
 		6AD2790720BCC04D0085BC29 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		6AD2790820BCC04D0085BC29 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		75895B6507775E8AFBEEA2D9 /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
+		92033ED220F0200C00F92171 /* ReplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
+		92033ED320F0200C00F92171 /* ReplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
 		9218C8D720EE8B68009159E9 /* DetailsTweetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTweetViewController.h; sourceTree = "<group>"; };
 		9218C8D820EE8B68009159E9 /* DetailsTweetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTweetViewController.m; sourceTree = "<group>"; };
 		9218C8DA20EE9E35009159E9 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				9279832620EBF63F009F67FE /* ComposeViewController.m */,
 				9218C8DA20EE9E35009159E9 /* ProfileViewController.h */,
 				9218C8DB20EE9E35009159E9 /* ProfileViewController.m */,
+				92033ED220F0200C00F92171 /* ReplyViewController.h */,
+				92033ED320F0200C00F92171 /* ReplyViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E0430320EB0029005D782C /* TweetCell.m in Sources */,
+				92033ED420F0200C00F92171 /* ReplyViewController.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				92E042FA20EACC18005D782C /* User.m in Sources */,
 				9279832720EBF63F009F67FE /* ComposeViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+#import <WebKit/WebKit.h>
 
 @implementation TweetCell
 
@@ -109,7 +110,23 @@
     if(self.tweet.favorited) self.favoriteButton.selected = YES;
     else self.favoriteButton.selected = NO;
     
-    [self.userProfileView setImageWithURL:tweet.user.userProfileURL];
+    [self.userProfileView setImageWithURL:self.tweet.user.userProfileURL];
+    self.userProfileView.layer.cornerRadius = 30;
+    
+//    NSURLRequest *mediaRequest = [NSURLRequest requestWithURL:self.tweet.mediaURL      cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+//    NSLog(@"%@", self.tweet.mediaURL);
+//    if(self.tweet.mediaURL == nil){
+//        CGRect newFrame = self.mediaView.frame;
+//        newFrame.size.height = 100;
+//        [self.mediaView setFrame:newFrame];
+//    }
+//    else {
+//        CGRect newFrame = self.mediaView.frame;
+//        newFrame.size.height = 100;
+//        [self.mediaView setFrame:newFrame];
+//        [self.mediaView loadRequest:mediaRequest];
+//    }
+//    NSLog(@"%f", self.mediaView.frame.size.height);
 }
 
 @end

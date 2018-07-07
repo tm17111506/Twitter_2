@@ -28,7 +28,12 @@
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
         self.retweeted = [dictionary[@"retweeted"] boolValue];
-
+        NSDictionary *entities = dictionary[@"extended_entities"];
+        NSArray *media = entities[@"media"];
+        NSDictionary *mediaData = media[0];
+        NSString *url = mediaData[@"media_url_https"];
+        self.mediaURL = [NSURL URLWithString:url];
+        
         NSDictionary *user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
         
@@ -42,7 +47,6 @@
         formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
         self.createdAtString = [formatter stringFromDate:date];
-//        self.createdAtString = dateTimeAgo;
     }
     return self;
 }

@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
 #import "ProfileViewController.h"
+#import "ReplyViewController.h"
 
 @interface DetailsTweetViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileView;
@@ -53,7 +54,8 @@
     self.createdDateLabel.text = self.tweet.createdAtString;
     
     [self.userProfileView setImageWithURL:self.tweet.user.userProfileURL];
-    
+    self.userProfileView.layer.cornerRadius = 20;
+
     if(self.tweet.retweeted) self.retweetButton.selected = YES;
     else self.retweetButton.selected = NO;
     
@@ -136,6 +138,12 @@
     if([segue.identifier isEqual:@"TweetProfileView"]){
         ProfileViewController *profileViewController = [segue destinationViewController];
         profileViewController.user = self.tweet.user;
+    }
+    else if([segue.identifier isEqual:@"ReplyView"]){
+        UINavigationController *navController = [segue destinationViewController];
+        ReplyViewController *replyViewController = (ReplyViewController*)navController.topViewController;
+        replyViewController.tweet = self.tweet;
+        NSLog(@"%@", self.tweet);
     }
 }
 

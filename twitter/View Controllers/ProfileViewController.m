@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.userTweetTableView.dataSource = self;
+    self.userTweetTableView.delegate = self;
+    self.userTweetTableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
     [self fetchTimeline];
     [self setProfile];
@@ -48,6 +50,10 @@
     [self.followingCount sizeToFit];
     
     [self.userProfileView setImageWithURL:self.user.userProfileURL];
+    self.userProfileView.layer.cornerRadius = 30;
+    self.userProfileView.layer.borderColor = UIColor.whiteColor.CGColor;
+    self.userProfileView.layer.borderWidth = 2;
+    
     [self.backgroundImageView setImageWithURL:self.user.profileBackgroundURL];
 }
 
@@ -69,6 +75,10 @@
     [cell setTweetCell:cell.tweet];
     return cell;
 }
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+//    return UITableViewAutomaticDimension;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tweets.count;
